@@ -10,7 +10,7 @@ body {
   font-family: 'Manrope', sans-serif;
 }
 
-body h1 {
+body h2 {
   font-weight: 700;
 }
 
@@ -149,27 +149,100 @@ body ul li a {
 }
 
 .body-content .side-bar {
+  z-index: 999999;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1E6F5C), to(#29BB89));
   background-image: linear-gradient(#1E6F5C, #29BB89);
   width: 25vw;
-  padding-bottom: 1rem;
-  height: inherit;
+  float: left;
 }
 
-.body-content .side-bar p {
+.body-content .side-bar h5 {
+  background-color: #29BB89;
+  padding: .5rem;
   color: white;
   font-weight: 500;
-  background-color: #29BB89;
-  padding: .5rem 1rem;
 }
 
-.body-content .side-bar .container ul {
+.body-content .side-bar ul {
+  padding: 5px 0 5px 30px;
+}
+
+.body-content .side-bar ul li {
   list-style: none;
-  color: white;
+  font-weight: 500;
+  margin: 0.8rem auto;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: .8s;
+  transition: .8s;
+  text-transform: capitalize;
+  max-height: 35px;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.body-content .side-bar ul li:hover {
+  background-color: #29BB89;
+}
+
+.body-content .side-bar ul li a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.body-content .side-bar ul li a i {
+  position: absolute;
+  right: 2rem;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.body-content .side-bar ul li > ul {
+  padding: 1px;
+  margin: 0 0 0 10px;
+}
+
+.body-content .side-bar ul li > ul li {
+  height: 25px;
+  line-height: 20px;
+  font-size: 13px;
+  padding: 1px 1px 1px 20px;
+  font-weight: 400;
+  border-left: 1px solid #fff0f0;
+  margin: 5px;
+  color: #29BB89;
+  cursor: pointer;
+}
+
+.body-content .side-bar ul li:target {
+  max-height: 300px;
+}
+
+.body-content .side-bar ul li:target > ul li a {
+  background: transparent;
+}
+
+.body-content .side-bar ul li:target a {
+  color: whitesmoke;
+  display: inherit;
+  background: #29BB89;
+}
+
+.body-content .side-bar ul li:target a i {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.body-content .side-bar ul li:target:hover {
+  background: initial;
 }
 
 .body-content .content .contact table tr, .body-content .content .contact td {
   padding: .5rem 0;
+}
+
+.body-content .content .sub-content img {
+  width: 50%;
 }
 
 .body-content .content .map .mapouter {
@@ -209,7 +282,7 @@ footer {
             transform: translateX(-110%);
     position: absolute;
     width: 60vw;
-    height: 100vh;
+    height: 80vh;
     -webkit-transition: .5s;
     transition: .5s;
     -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);

@@ -15,7 +15,7 @@ $color4 : #E6DD3B;
 // $f-paragraph:;
 
 body {
-    h1 {
+    h2 {
         font-weight: 700;
     }
     margin-top: 1rem;
@@ -121,27 +121,94 @@ body {
 .body-content {
     display: flex;
     .side-bar {
-        background-image: linear-gradient( $color1, $color3);
-        width: 25vw;
-        padding-bottom: 1rem;
-        height: inherit;
-        p {
+        z-index: 999999;
+        h5 {
+            background-color: #29BB89;
+            padding: .5rem;
             color: white;
             font-weight: 500;
-            background-color: $color3;
-            padding: .5rem 1rem;
         }
-        .container {
-            ul {
+        background-image: linear-gradient( $color1, $color3);
+        width: 25vw;
+        float: left;    
+
+        ul {
+            padding: 5px 0 5px 30px;
+
+            li {
                 list-style: none;
-                color: white;
+                font-weight: 500;
+                margin: 0.8rem auto;
+                position: relative;
+                overflow: hidden;
+                transition: .8s;
+                text-transform: capitalize;
+                max-height: 35px;
+                line-height: 35px;
+                cursor: pointer;
+                &:hover {
+                    background-color: $color3;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: whitesmoke;
+
+                    i {
+                        position: absolute;
+                        right: 2rem;
+                        transition: .5s;
+                    }
+                }
             }
-        }
+
+            li>ul {
+                padding: 1px;
+                margin: 0 0 0 10px;
+
+                li {
+                    height: 25px;
+                    line-height: 20px;
+                    font-size: 13px;
+                    padding: 1px 1px 1px 20px;
+                    font-weight: 400;
+                    border-left: 1px solid #fff0f0;
+                    margin: 5px;
+                    color: $color3;
+                    cursor: pointer;
+                }
+            }
+            li:target {
+                max-height: 300px;
+                // border-radius: 5px 0px 0px 5px;
+            }
+            li:target> ul li a {
+                background: transparent;
+            }
+            li:target a {
+                color: whitesmoke;
+                display: inherit;
+                background: $color3;
+            }
+            li:target a i {
+                transform: rotate(90deg);
+                // top: 10px;
+            }
+            li:target:hover {
+                background: initial;
+            }
+        }       
     }
+    
     .content {
         .contact {
             table tr, td {
                 padding: .5rem 0;
+            }
+        }
+        .sub-content {
+            img {
+                width: 50%;
             }
         }
         .map .mapouter {
@@ -188,7 +255,7 @@ footer {
             transform: translateX(-110%);
             position: absolute;
             width: 60vw;
-            height: 100vh;
+            height: 80vh;
             transition: .5s;
             box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
         }
