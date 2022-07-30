@@ -1,3 +1,4 @@
+// NAVBAR
 const toggle = document.querySelector('.toggle');
 const nav = document.querySelector('.body-content .side-bar');
 
@@ -19,4 +20,13 @@ const span4 = document.querySelector('.navbar span:nth-child(3)');
 toggle.addEventListener('click', function(){
     span4.classList.toggle('span-3');
 })
-    
+
+
+// SIDEBAR
+$(document).ready(function() {
+    // toggle sub menu
+    $('.sub-btn').click(function(){
+        $(this).next('.sub-menu').slideToggle();
+        $(this).find('.dropdown').toggleClass('rotate');
+    });
+});

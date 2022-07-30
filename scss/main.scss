@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 // Variable
 $color1 : #1E6F5C;
 $color2 : #289672;
@@ -122,82 +126,58 @@ body {
     display: flex;
     .side-bar {
         z-index: 999999;
+        background-image: linear-gradient( $color1, $color3);
+        width: 25vw;
+        float: left; 
         h5 {
             background-color: #29BB89;
             padding: .5rem;
             color: white;
             font-weight: 500;
         }
-        background-image: linear-gradient( $color1, $color3);
-        width: 25vw;
-        float: left;    
 
-        ul {
-            padding: 5px 0 5px 30px;
-
-            li {
-                list-style: none;
-                font-weight: 500;
-                margin: 0.8rem auto;
+        .menu {
+            .item {
                 position: relative;
-                overflow: hidden;
-                transition: .8s;
-                text-transform: capitalize;
-                max-height: 35px;
-                line-height: 35px;
                 cursor: pointer;
-                &:hover {
-                    background-color: $color3;
-                }
 
                 a {
+                    color: white;
                     text-decoration: none;
-                    color: whitesmoke;
+                    display: block;
+                    line-height: 2.2rem;
+                    padding: 5px 2rem;
+                    &:hover {
+                        color: $color4;
+                        background: rgba(255, 255, 255, 0.8);
+                        transition: .3s ease;
+                        color: $color1;
+                    }
 
-                    i {
+                    .dropdown {
                         position: absolute;
-                        right: 2rem;
-                        transition: .5s;
+                        color: white;
+                        right: 1rem;
+                        transition: .3s ease;
+                    }
+                    .rotate {
+                        transform: rotate(90deg);
+                    }
+                }
+                a:hover .dropdown {
+                    color: $color1;
+                }
+
+                .sub-menu {
+                    background-color: $color3;
+                    display: none;
+                    a {
+                        padding-left: 50px;
+                        line-height: 2rem;
                     }
                 }
             }
-
-            li>ul {
-                padding: 1px;
-                margin: 0 0 0 10px;
-
-                li {
-                    height: 25px;
-                    line-height: 20px;
-                    font-size: 13px;
-                    padding: 1px 1px 1px 20px;
-                    font-weight: 400;
-                    border-left: 1px solid #fff0f0;
-                    margin: 5px;
-                    color: $color3;
-                    cursor: pointer;
-                }
-            }
-            li:target {
-                max-height: 300px;
-                // border-radius: 5px 0px 0px 5px;
-            }
-            li:target> ul li a {
-                background: transparent;
-            }
-            li:target a {
-                color: whitesmoke;
-                display: inherit;
-                background: $color3;
-            }
-            li:target a i {
-                transform: rotate(90deg);
-                // top: 10px;
-            }
-            li:target:hover {
-                background: initial;
-            }
-        }       
+        }
     }
     
     .content {
